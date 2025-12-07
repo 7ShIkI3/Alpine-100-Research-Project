@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Alpine 100 : Ingénierie Financière & Macroéconomie</title>
+    <meta name="description"
+        content="Projet de recherche étudiant sur la création d'un indice boursier Transalpin unifié.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- KaTeX pour les formules mathématiques -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Animations */
+        .fade-enter {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: #ffffff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Top Disclaimer Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 text-center px-4">
+        <i class="fa-solid fa-graduation-cap text-yellow-500 mr-2"></i>
+        Projet de Recherche Étudiant — Réalisé avec l'assistance d'Intelligence Artificielle pour l'analyse de données
+        et le développement web.
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="app.navigate('home')">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center text-white shadow-lg">
+                        <i class="fa-solid fa-mountain text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-lg leading-none text-slate-900">Alpine<span
+                                class="text-blue-600">100</span></span>
+                        <span class="block text-[10px] text-slate-500 font-mono uppercase tracking-wider">Research
+                            Initiative</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-1">
+                    <button onclick="app.navigate('home')"
+                        class="nav-btn px-4 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-all"
+                        data-target="home">Vision</button>
+                    <button onclick="app.navigate('impact')"
+                        class="nav-btn px-4 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-all"
+                        data-target="impact">Impact Éco</button>
+                    <button onclick="app.navigate('engineering')"
+                        class="nav-btn px-4 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-all border border-transparent hover:border-blue-100"
+                        data-target="engineering">
+                        <i class="fa-solid fa-gears mr-1 opacity-50"></i> Ingénierie
+                    </button>
+                    <button onclick="app.navigate('about')"
+                        class="nav-btn px-4 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-all"
+                        data-target="about">Étudiant & IA</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-slate-500 hover:text-slate-800"
+                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 p-4 space-y-2">
+            <button onclick="app.navigate('home')"
+                class="block w-full text-left px-4 py-2 hover:bg-slate-50 rounded">Vision</button>
+            <button onclick="app.navigate('impact')"
+                class="block w-full text-left px-4 py-2 hover:bg-slate-50 rounded">Impact Éco</button>
+            <button onclick="app.navigate('engineering')"
+                class="block w-full text-left px-4 py-2 hover:bg-slate-50 rounded">Ingénierie de l'Indice</button>
+            <button onclick="app.navigate('about')"
+                class="block w-full text-left px-4 py-2 hover:bg-slate-50 rounded">L'Étudiant</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main id="app-container" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- ================= PAGE: HOME (VISION) ================= -->
+        <section id="page-home" class="page-section fade-enter">
+            <div class="text-center py-16 lg:py-24">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-wide uppercase mb-4">Étude
+                    de Faisabilité</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
+                    L'Indice <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Transalpin</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-500">
+                    Comment la fusion des marchés boursiers de la France, de la Suisse, de l'Italie et du sud de
+                    l'Allemagne pourrait créer la 3ème puissance financière mondiale.
+                </p>
+                <div class="mt-10 flex justify-center gap-4">
+                    <button onclick="app.navigate('engineering')"
+                        class="px-8 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-lg shadow-blue-500/30 transition-all">
+                        Comment créer l'indice ?
+                    </button>
+                    <button onclick="app.navigate('impact')"
+                        class="px-8 py-3 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-all">
+                        Voir les Bénéfices
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div
+                        class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-4">
+                        <i class="fa-solid fa-layer-group text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">4 Nations, 1 Puissance</h3>
+                    <p class="text-slate-600 text-sm">Union des places de Paris, Milan, Zurich et Francfort (segment
+                        Sud) pour rivaliser avec le S&P 500.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div
+                        class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 mb-4">
+                        <i class="fa-solid fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Profondeur de Marché</h3>
+                    <p class="text-slate-600 text-sm">Une capitalisation boursière combinée dépassant les 4 500
+                        Milliards d'euros, attirant massivement les investisseurs institutionnels.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4">
+                        <i class="fa-solid fa-flask text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Projet Expérimental</h3>
+                    <p class="text-slate-600 text-sm">Une démonstration théorique réalisée par un étudiant utilisant
+                        l'IA pour modéliser les flux financiers complexes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE: IMPACT ECONOMIQUE ================= -->
+        <section id="page-impact" class="page-section hidden fade-enter">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Impact Macroéconomique Régional</h2>
+                <p class="text-slate-600">L'intégration crée des synergies spécifiques pour chaque économie.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Country Cards -->
+                <div class="space-y-6">
+                    <!-- France -->
+                    <div
+                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-blue-600 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
+                                class="fa-solid fa-wine-glass text-blue-600 mr-3"></i> France</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            <strong>Bénéfice :</strong> Financement de la "Tech" et de l'Industrie verte. Le CAC40 est
+                            trop "Luxe/Total". L'indice élargi apporte la liquidité nécessaire pour financer les
+                            startups industrielles (Deeptech) via des IPOs plus larges.
+                        </p>
+                    </div>
+                    <!-- Italie -->
+                    <div
+                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-emerald-600 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
+                                class="fa-solid fa-pizza-slice text-emerald-600 mr-3"></i> Italie</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            <strong>Bénéfice :</strong> Baisse du coût de la dette (Spread). En associant les
+                            entreprises italiennes (Ferrari, Eni) à la stabilité Suisse/Allemande, on réduit la "prime
+                            de risque pays". Les PME italiennes accèdent à du capital moins cher.
+                        </p>
+                    </div>
+                    <!-- Suisse -->
+                    <div
+                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-red-600 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
+                                class="fa-solid fa-cheese text-red-600 mr-3"></i> Suisse</h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            <strong>Bénéfice :</strong> Dé-concentration. Le SMI est dominé par 3 géants (Nestlé, Roche,
+                            Novartis). L'indice Alpin permet aux fonds de pension suisses de diversifier leur risque
+                            géographique tout en restant dans une zone culturelle proche.
+                        </p>
+                    </div>
+                    <!-- Allemagne (Sud) -->
+                    <div
+                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-amber-500 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
+                                class="fa-solid fa-beer-mug-empty text-amber-500 mr-3"></i> Allemagne (Bavière/Baden-W.)
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            <strong>Bénéfice :</strong> Connexion Sud. Munich et Stuttgart sont économiquement plus
+                            proches de Milan et Zurich que de Berlin. Cet indice formalise l'axe industriel
+                            "Rhin-Alpin", créant le cluster industriel le plus puissant du monde.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Risks & Charts -->
+                <div class="space-y-8">
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-4">Projection : Attraction de Capitaux (Mds €)</h4>
+                        <div class="h-64">
+                            <canvas id="impactChart"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-slate-500 mt-2">Source : Modélisation étudiante basée sur
+                            flux ETF mondiaux.</p>
+                    </div>
+
+                    <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                        <h4 class="font-bold text-red-800 mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>
+                            Effets Néfastes Potentiels</h4>
+                        <ul class="text-sm text-red-700 space-y-2 list-disc list-inside">
+                            <li><strong>Vampirisation :</strong> Les capitaux pourraient se concentrer uniquement sur
+                                les 50 plus grosses entreprises, asséchant les petites bourses nationales.</li>
+                            <li><strong>Perte de Souveraineté :</strong> La France ou l'Italie ne pourraient plus
+                                utiliser la régulation boursière comme outil politique national.</li>
+                            <li><strong>Risque de Contagion :</strong> Une crise bancaire en Italie affecterait
+                                mécaniquement la cotation des entreprises suisses saines via l'effet de panier.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE: INGENIERIE (DEEP DIVE) ================= -->
+        <section id="page-engineering" class="page-section hidden fade-enter">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-slate-900">Méthodologie de Création de l'Indice</h2>
+                    <p class="text-slate-600 mt-2">Plongée technique dans la construction mathématique et réglementaire.
+                    </p>
+                </div>
+
+                <!-- Step 1: Universe Selection -->
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 mb-8 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800">1. Sélection de l'Univers & Filtres de Liquidité</h3>
+                        <span class="text-xs font-mono bg-slate-200 px-2 py-1 rounded">Step 01</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-slate-600 mb-4">
+                            On ne prend pas toutes les actions. Pour qu'un indice soit achetable par des professionnels
+                            (ETF), il doit être liquide.
+                        </p>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-filter text-blue-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-semibold">Filtre Géographique :</span> Siège social en FR, CH, IT,
+                                    AT ou DE (Bavière/BW).
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-filter text-blue-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-semibold">Filtre de Liquidité (ADTV) :</span> Volume quotidien
+                                    moyen > 10 M€ sur 6 mois.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-filter text-blue-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-semibold">Free Float (Flottant) :</span> On ne compte que les
+                                    actions réellement échangeables en bourse (on exclut les parts de l'État ou des
+                                    familles fondatrices).
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 2: Formula (The Geeky Part) -->
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 mb-8 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800">2. La Formule de Calcul (Laspeyres)</h3>
+                        <span class="text-xs font-mono bg-slate-200 px-2 py-1 rounded">Step 02</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-slate-600 mb-4">
+                            La valeur de l'indice <span class="font-mono text-blue-600">I_t</span> à l'instant
+                            <em>t</em> est calculée selon une variante de la formule de Laspeyres, ajustée par un
+                            Diviseur <span class="font-mono text-blue-600">D_t</span> pour gérer les événements (split
+                            d'actions, dividendes).
+                        </p>
+
+                        <div class="formula-box" id="latex-formula">
+                            <!-- Formula rendered by KaTeX via JS -->
+                            $$ I_t = \frac{\sum_{i=1}^{n} (P_{i,t} \times Q_{i,t} \times F_{i,t} \times C_{i,t})}{D_t}
+                            $$
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 mt-4">
+                            <div class="p-2 bg-slate-50 rounded border border-slate-100">
+                                <span class="font-bold font-mono">P_{i,t}</span> : Prix de l'action i.
+                            </div>
+                            <div class="p-2 bg-slate-50 rounded border border-slate-100">
+                                <span class="font-bold font-mono">Q_{i,t}</span> : Nombre d'actions totales.
+                            </div>
+                            <div class="p-2 bg-slate-50 rounded border border-slate-100">
+                                <span class="font-bold font-mono">F_{i,t}</span> : Facteur de flottant (0 à 1).
+                            </div>
+                            <div class="p-2 bg-slate-50 rounded border border-slate-100">
+                                <span class="font-bold font-mono">C_{i,t}</span> : Facteur de plafonnement (Capping
+                                Factor).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Capping Rules -->
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 mb-8 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800">3. Règles de Plafonnement (Capping)</h3>
+                        <span class="text-xs font-mono bg-slate-200 px-2 py-1 rounded">Step 03</span>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <p class="text-sm text-slate-600 mb-4">
+                                Sans règles, <strong>Nestlé, Roche et LVMH</strong> écraseraient l'indice (plus de 30% à
+                                eux seuls). Pour garantir la diversification, on applique la règle "10/40" (règle UCITS
+                                européenne) :
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 space-y-2">
+                                <li>Aucune action ne peut dépasser <strong>10%</strong> du poids total.</li>
+                                <li>La somme des actions dépassant 5% ne doit pas excéder <strong>40%</strong>.</li>
+                            </ul>
+                        </div>
+                        <div class="h-48 relative">
+                            <canvas id="cappingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Maintenance -->
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800">4. Gouvernance & Rebalancement</h3>
+                        <span class="text-xs font-mono bg-slate-200 px-2 py-1 rounded">Step 04</span>
+                    </div>
+                    <div class="p-6 flex flex-col md:flex-row gap-6">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-slate-900 mb-2">Comité Scientifique</h4>
+                            <p class="text-xs text-slate-600">Un comité se réunit trimestriellement (Mars, Juin, Sept,
+                                Déc) pour décider des entrées/sorties (ex: une société fait faillite ou fusionne). Le
+                                "Diviseur" est ajusté la nuit du rebalancement pour que l'indice ne saute pas
+                                artificiellement.</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-slate-900 mb-2">Règlementation BMR</h4>
+                            <p class="text-xs text-slate-600">Pour être vendu, l'indice doit respecter la "Benchmark
+                                Regulation" de l'UE (prévention des conflits d'intérêts et manipulation).</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PAGE: ABOUT (STUDENT + AI) ================= -->
+        <section id="page-about" class="page-section hidden fade-enter">
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gradient-to-r from-slate-800 to-slate-900 p-8 text-white text-center">
+                    <div
+                        class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm text-3xl">
+                        👨‍🎓
+                    </div>
+                    <h2 class="text-3xl font-bold">À Propos du Projet</h2>
+                    <p class="text-slate-300 mt-2">Une collaboration Humain-IA</p>
+                </div>
+
+                <div class="p-8 space-y-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Qui suis-je ?</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Je suis étudiant en finance/économie. Ce site web n'est pas un produit commercial, mais le
+                            résultat d'un travail de recherche approfondi visant à démontrer la faisabilité théorique
+                            d'une union des marchés de capitaux en Europe du Sud.
+                        </p>
+                    </div>
+
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <h3 class="text-lg font-bold text-blue-800 mb-2"><i class="fa-solid fa-robot mr-2"></i>Le Rôle
+                            de l'IA</h3>
+                        <p class="text-slate-700 text-sm mb-4">
+                            Pour réaliser ce projet d'une complexité technique élevée, j'ai utilisé des modèles
+                            d'intelligence artificielle comme outils de productivité ("Co-pilote"). Voici comment :
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blue-500 mr-2"></i>
+                                <strong>Recherche de Données :</strong> Agrégation rapide des capitalisations boursières
+                                (Nestlé, LVMH, SAP, etc.).
+                            </li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blue-500 mr-2"></i>
+                                <strong>Codage Web :</strong> Génération de la structure HTML/JS (SPA) pour présenter
+                                l'étude.
+                            </li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blue-500 mr-2"></i>
+                                <strong>Vérification Mathématique :</strong> Contrôle de cohérence des formules
+                                d'indices (Laspeyres).
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <p class="text-xs text-slate-400 italic">
+                            Ce projet est un "Proof of Concept". Il ne constitue pas un conseil en investissement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-auto py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm mb-2">© 2024 Alpine 100 Research Project.</p>
+            <div class="flex justify-center space-x-4 text-xs text-slate-400">
+                <span>Méthodologie Open Source</span>
+                <span>•</span>
+                <span>Données Simulées</span>
+                <span>•</span>
+                <span>Powered by Student Curiosity & AI</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic -->
+    <script>
+        const app = {
+            state: {
+                currentTab: 'home'
+            },
+
+            charts: {},
+
+            init: function () {
+                // Render Math Formulas
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+
+                this.setupCharts();
+            },
+
+            navigate: function (targetId) {
+                // Update Nav Buttons
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    if (btn.dataset.target === targetId) {
+                        btn.classList.add('text-blue-600', 'bg-slate-50');
+                        btn.classList.remove('text-slate-600');
+                    } else {
+                        btn.classList.remove('text-blue-600', 'bg-slate-50');
+                        btn.classList.add('text-slate-600');
+                    }
+                });
+
+                // Update Sections
+                document.querySelectorAll('.page-section').forEach(sec => {
+                    sec.classList.add('hidden');
+                });
+
+                const targetSec = document.getElementById('page-' + targetId);
+                targetSec.classList.remove('hidden');
+
+                // Trigger reflow for animation
+                targetSec.classList.remove('fade-enter');
+                void targetSec.offsetWidth;
+                targetSec.classList.add('fade-enter');
+
+                // Resize charts if appearing
+                if (targetId === 'impact' && this.charts.impact) this.charts.impact.resize();
+                if (targetId === 'engineering' && this.charts.capping) this.charts.capping.resize();
+
+                window.scrollTo(0, 0);
+            },
+
+            setupCharts: function () {
+                // 1. Impact Chart
+                const ctxImpact = document.getElementById('impactChart');
+                if (ctxImpact) {
+                    this.charts.impact = new Chart(ctxImpact, {
+                        type: 'line',
+                        data: {
+                            labels: ['2024', '2025', '2026', '2027', '2028'],
+                            datasets: [{
+                                label: 'Avec Indice Alpin (Projection)',
+                                data: [100, 115, 135, 160, 190],
+                                borderColor: '#2563eb',
+                                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                                fill: true,
+                                tension: 0.4
+                            }, {
+                                label: 'Sans Indice (Status Quo)',
+                                data: [100, 105, 110, 116, 122],
+                                borderColor: '#94a3b8',
+                                borderDash: [5, 5],
+                                fill: false
+                            }]
+                        },
+                        options: { responsive: true, maintainAspectRatio: false }
+                    });
+                }
+
+                // 2. Capping Chart
+                const ctxCap = document.getElementById('cappingChart');
+                if (ctxCap) {
+                    this.charts.capping = new Chart(ctxCap, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Nestlé (Plafonné 10%)', 'LVMH (Plafonné 10%)', 'Roche (Plafonné 10%)', 'Autres (70%)'],
+                            datasets: [{
+                                data: [10, 10, 10, 70],
+                                backgroundColor: ['#ef4444', '#3b82f6', '#10b981', '#cbd5e1'],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: { display: true, text: 'Répartition après règle des 10%' },
+                                legend: { position: 'right' }
+                            }
+                        }
+                    });
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            app.init();
+        });
+    </script>
+</body>
+
+</html>
