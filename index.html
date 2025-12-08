@@ -4,10 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet Alpine 100 : Ingénierie Financière & Macroéconomie</title>
-    <meta name="description"
-        content="Projet de recherche étudiant sur la création d'un indice boursier Transalpin unifié.">
+    <title>ALPINE 100 - L'Indice Boursier Transalpin (Projet Recherche)</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Découvrez le projet Alpine 100 : une étude de faisabilité pour un indice boursier unifié entre la France, l'Italie, la Suisse et l'Allemagne. Analyse financière et macroéconomique.">
+    <meta name="keywords" content="Alpine 100, indice boursier, finance, macroéconomie, France, Italie, Suisse, Allemagne, bourse, investissement, recherche étudiant">
+    <meta name="author" content="Alpine 100 Research Project">
+    <link rel="canonical" href="https://alpine-100-research-project.netlify.app/">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alpine-100-research-project.netlify.app/">
+    <meta property="og:title" content="ALPINE 100 - La Nouvelle Puissance Financière">
+    <meta property="og:description" content="Comment la fusion des marchés boursiers alpins pourrait créer la 3ème puissance financière mondiale.">
+    <meta property="og:image" content="https://alpine-100-research-project.netlify.app/og-image.jpg"> <!-- Note: User should add an image later -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://alpine-100-research-project.netlify.app/">
+    <meta property="twitter:title" content="ALPINE 100 - La Nouvelle Puissance Financière">
+    <meta property="twitter:description" content="Comment la fusion des marchés boursiers alpins pourrait créer la 3ème puissance financière mondiale.">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -22,65 +39,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Fonts -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Animations */
-        .fade-enter {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        /* Formula Box */
-        .formula-box {
-            background: #ffffff;
-            border-left: 4px solid #3b82f6;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -97,7 +57,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="app.navigate('home')">
+                <a href="index.html" class="flex items-center space-x-3 cursor-pointer">
                     <div
                         class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center text-white shadow-lg">
                         <i class="fa-solid fa-mountain text-lg"></i>
@@ -108,7 +68,7 @@
                         <span class="block text-[10px] text-slate-500 font-mono uppercase tracking-wider">Research
                             Initiative</span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-1">
@@ -211,57 +171,67 @@
         <section id="page-impact" class="page-section hidden fade-enter">
             <div class="mb-12">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Impact Macroéconomique Régional</h2>
-                <p class="text-slate-600">L'intégration crée des synergies spécifiques pour chaque économie.</p>
+                <p class="text-slate-600">Cliquez sur un pays pour voir les données détaillées.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Country Cards -->
                 <div class="space-y-6">
                     <!-- France -->
-                    <div
-                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-blue-600 shadow-sm hover:shadow-md transition-shadow">
-                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
-                                class="fa-solid fa-wine-glass text-blue-600 mr-3"></i> France</h3>
-                        <p class="text-sm text-slate-600 mt-2">
-                            <strong>Bénéfice :</strong> Financement de la "Tech" et de l'Industrie verte. Le CAC40 est
-                            trop "Luxe/Total". L'indice élargi apporte la liquidité nécessaire pour financer les
-                            startups industrielles (Deeptech) via des IPOs plus larges.
-                        </p>
-                    </div>
+                    <a href="france.html" class="block group">
+                        <div
+                            class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-blue-600 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
+                            <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
+                                <span><i class="fa-solid fa-wine-glass text-blue-600 mr-3"></i> France</span>
+                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-blue-600 transition-colors"></i>
+                            </h3>
+                            <p class="text-sm text-slate-600 mt-2">
+                                <strong>Bénéfice :</strong> Financement de la "Tech" et de l'Industrie verte. Accès à la liquidité pour la Deeptech.
+                            </p>
+                        </div>
+                    </a>
+                    
                     <!-- Italie -->
-                    <div
-                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-emerald-600 shadow-sm hover:shadow-md transition-shadow">
-                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
-                                class="fa-solid fa-pizza-slice text-emerald-600 mr-3"></i> Italie</h3>
-                        <p class="text-sm text-slate-600 mt-2">
-                            <strong>Bénéfice :</strong> Baisse du coût de la dette (Spread). En associant les
-                            entreprises italiennes (Ferrari, Eni) à la stabilité Suisse/Allemande, on réduit la "prime
-                            de risque pays". Les PME italiennes accèdent à du capital moins cher.
-                        </p>
-                    </div>
+                    <a href="italy.html" class="block group">
+                        <div
+                            class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-emerald-600 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
+                            <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
+                                <span><i class="fa-solid fa-pizza-slice text-emerald-600 mr-3"></i> Italie</span>
+                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-emerald-600 transition-colors"></i>
+                            </h3>
+                            <p class="text-sm text-slate-600 mt-2">
+                                <strong>Bénéfice :</strong> Baisse du coût de la dette (Spread). Réduction de la "prime de risque pays".
+                            </p>
+                        </div>
+                    </a>
+
                     <!-- Suisse -->
-                    <div
-                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-red-600 shadow-sm hover:shadow-md transition-shadow">
-                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
-                                class="fa-solid fa-cheese text-red-600 mr-3"></i> Suisse</h3>
-                        <p class="text-sm text-slate-600 mt-2">
-                            <strong>Bénéfice :</strong> Dé-concentration. Le SMI est dominé par 3 géants (Nestlé, Roche,
-                            Novartis). L'indice Alpin permet aux fonds de pension suisses de diversifier leur risque
-                            géographique tout en restant dans une zone culturelle proche.
-                        </p>
-                    </div>
+                    <a href="switzerland.html" class="block group">
+                        <div
+                            class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-red-600 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
+                            <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
+                                <span><i class="fa-solid fa-cheese text-red-600 mr-3"></i> Suisse</span>
+                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-red-600 transition-colors"></i>
+                            </h3>
+                            <p class="text-sm text-slate-600 mt-2">
+                                <strong>Bénéfice :</strong> Dé-concentration. Diversification du risque géographique pour les fonds de pension.
+                            </p>
+                        </div>
+                    </a>
+
                     <!-- Allemagne (Sud) -->
-                    <div
-                        class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-amber-500 shadow-sm hover:shadow-md transition-shadow">
-                        <h3 class="font-bold text-lg text-slate-900 flex items-center"><i
-                                class="fa-solid fa-beer-mug-empty text-amber-500 mr-3"></i> Allemagne (Bavière/Baden-W.)
-                        </h3>
-                        <p class="text-sm text-slate-600 mt-2">
-                            <strong>Bénéfice :</strong> Connexion Sud. Munich et Stuttgart sont économiquement plus
-                            proches de Milan et Zurich que de Berlin. Cet indice formalise l'axe industriel
-                            "Rhin-Alpin", créant le cluster industriel le plus puissant du monde.
-                        </p>
-                    </div>
+                    <a href="germany.html" class="block group">
+                        <div
+                            class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-amber-500 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
+                            <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
+                                <span><i class="fa-solid fa-beer-mug-empty text-amber-500 mr-3"></i> Allemagne (Sud)</span>
+                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-amber-500 transition-colors"></i>
+                            </h3>
+                            <p class="text-sm text-slate-600 mt-2">
+                                <strong>Bénéfice :</strong> Formalisation de l'axe industriel "Rhin-Alpin", le cluster industriel le plus puissant.
+                            </p>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Right Column: Risks & Charts -->
@@ -280,11 +250,9 @@
                             Effets Néfastes Potentiels</h4>
                         <ul class="text-sm text-red-700 space-y-2 list-disc list-inside">
                             <li><strong>Vampirisation :</strong> Les capitaux pourraient se concentrer uniquement sur
-                                les 50 plus grosses entreprises, asséchant les petites bourses nationales.</li>
-                            <li><strong>Perte de Souveraineté :</strong> La France ou l'Italie ne pourraient plus
-                                utiliser la régulation boursière comme outil politique national.</li>
-                            <li><strong>Risque de Contagion :</strong> Une crise bancaire en Italie affecterait
-                                mécaniquement la cotation des entreprises suisses saines via l'effet de panier.</li>
+                                les 50 plus grosses entreprises.</li>
+                            <li><strong>Perte de Souveraineté :</strong> Perte de la régulation boursière comme outil politique national.</li>
+                            <li><strong>Risque de Contagion :</strong> Propagation rapide des crises bancaires locales.</li>
                         </ul>
                     </div>
                 </div>
@@ -484,7 +452,7 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 mt-auto py-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-500 text-sm mb-2">© 2024 Alpine 100 Research Project.</p>
+            <p class="text-slate-500 text-sm mb-2">© <script>document.write(new Date().getFullYear())</script> Alpine 100 Research Project.</p>
             <div class="flex justify-center space-x-4 text-xs text-slate-400">
                 <span>Méthodologie Open Source</span>
                 <span>•</span>
@@ -496,116 +464,7 @@
     </footer>
 
     <!-- Logic -->
-    <script>
-        const app = {
-            state: {
-                currentTab: 'home'
-            },
-
-            charts: {},
-
-            init: function () {
-                // Render Math Formulas
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        { left: '$$', right: '$$', display: true },
-                        { left: '$', right: '$', display: false }
-                    ],
-                    throwOnError: false
-                });
-
-                this.setupCharts();
-            },
-
-            navigate: function (targetId) {
-                // Update Nav Buttons
-                document.querySelectorAll('.nav-btn').forEach(btn => {
-                    if (btn.dataset.target === targetId) {
-                        btn.classList.add('text-blue-600', 'bg-slate-50');
-                        btn.classList.remove('text-slate-600');
-                    } else {
-                        btn.classList.remove('text-blue-600', 'bg-slate-50');
-                        btn.classList.add('text-slate-600');
-                    }
-                });
-
-                // Update Sections
-                document.querySelectorAll('.page-section').forEach(sec => {
-                    sec.classList.add('hidden');
-                });
-
-                const targetSec = document.getElementById('page-' + targetId);
-                targetSec.classList.remove('hidden');
-
-                // Trigger reflow for animation
-                targetSec.classList.remove('fade-enter');
-                void targetSec.offsetWidth;
-                targetSec.classList.add('fade-enter');
-
-                // Resize charts if appearing
-                if (targetId === 'impact' && this.charts.impact) this.charts.impact.resize();
-                if (targetId === 'engineering' && this.charts.capping) this.charts.capping.resize();
-
-                window.scrollTo(0, 0);
-            },
-
-            setupCharts: function () {
-                // 1. Impact Chart
-                const ctxImpact = document.getElementById('impactChart');
-                if (ctxImpact) {
-                    this.charts.impact = new Chart(ctxImpact, {
-                        type: 'line',
-                        data: {
-                            labels: ['2024', '2025', '2026', '2027', '2028'],
-                            datasets: [{
-                                label: 'Avec Indice Alpin (Projection)',
-                                data: [100, 115, 135, 160, 190],
-                                borderColor: '#2563eb',
-                                backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                                fill: true,
-                                tension: 0.4
-                            }, {
-                                label: 'Sans Indice (Status Quo)',
-                                data: [100, 105, 110, 116, 122],
-                                borderColor: '#94a3b8',
-                                borderDash: [5, 5],
-                                fill: false
-                            }]
-                        },
-                        options: { responsive: true, maintainAspectRatio: false }
-                    });
-                }
-
-                // 2. Capping Chart
-                const ctxCap = document.getElementById('cappingChart');
-                if (ctxCap) {
-                    this.charts.capping = new Chart(ctxCap, {
-                        type: 'doughnut',
-                        data: {
-                            labels: ['Nestlé (Plafonné 10%)', 'LVMH (Plafonné 10%)', 'Roche (Plafonné 10%)', 'Autres (70%)'],
-                            datasets: [{
-                                data: [10, 10, 10, 70],
-                                backgroundColor: ['#ef4444', '#3b82f6', '#10b981', '#cbd5e1'],
-                                borderWidth: 0
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                title: { display: true, text: 'Répartition après règle des 10%' },
-                                legend: { position: 'right' }
-                            }
-                        }
-                    });
-                }
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            app.init();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
