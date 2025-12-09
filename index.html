@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALPINE 100 - L'Indice Boursier Transalpin (Projet Recherche)</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Découvrez le projet Alpine 100 : une étude de faisabilité pour un indice boursier unifié entre la France, l'Italie, la Suisse et l'Allemagne. Analyse financière et macroéconomique.">
-    <meta name="keywords" content="Alpine 100, indice boursier, finance, macroéconomie, France, Italie, Suisse, Allemagne, bourse, investissement, recherche étudiant">
+    <meta name="description"
+        content="Découvrez le projet Alpine 100 : une étude de faisabilité pour un indice boursier unifié entre la France, l'Italie, la Suisse et l'Allemagne. Analyse financière et macroéconomique.">
+    <meta name="keywords"
+        content="Alpine 100, indice boursier, finance, macroéconomie, France, Italie, Suisse, Allemagne, bourse, investissement, recherche étudiant">
     <meta name="author" content="Alpine 100 Research Project">
     <link rel="canonical" href="https://alpine-100-research-project.netlify.app/">
 
@@ -16,15 +18,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alpine-100-research-project.netlify.app/">
     <meta property="og:title" content="ALPINE 100 - La Nouvelle Puissance Financière">
-    <meta property="og:description" content="Comment la fusion des marchés boursiers alpins pourrait créer la 3ème puissance financière mondiale.">
-    <meta property="og:image" content="https://alpine-100-research-project.netlify.app/og-image.jpg"> <!-- Note: User should add an image later -->
+    <meta property="og:description"
+        content="Comment la fusion des marchés boursiers alpins pourrait créer la 3ème puissance financière mondiale.">
+    <meta property="og:image" content="https://alpine-100-research-project.netlify.app/og-image.jpg">
+    <!-- Note: User should add an image later -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://alpine-100-research-project.netlify.app/">
     <meta property="twitter:title" content="ALPINE 100 - La Nouvelle Puissance Financière">
-    <meta property="twitter:description" content="Comment la fusion des marchés boursiers alpins pourrait créer la 3ème puissance financière mondiale.">
-    
+    <meta property="twitter:description"
+        content="Comment la fusion des marchés boursiers alpins pourrait créer la 3ème puissance financière mondiale.">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -137,6 +142,55 @@
                 </div>
             </div>
 
+            <!-- Key Figures Dashboard (New) -->
+            <div class="max-w-6xl mx-auto mb-16">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-slate-900 text-white p-4 rounded-xl text-center shadow-lg">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Cap. Totale</div>
+                        <div
+                            class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+                            ~6.5 T€</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-200">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">PIB Couvert</div>
+                        <div class="text-2xl md:text-3xl font-bold text-slate-800">~10 T€</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-200">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Population</div>
+                        <div class="text-2xl md:text-3xl font-bold text-slate-800">220 M</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-slate-200">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Entreprises</div>
+                        <div class="text-2xl md:text-3xl font-bold text-slate-800">140+</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Structure Charts (New) -->
+            <div class="max-w-6xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-slate-800 mb-4 text-center">Diversification Sectorielle Unique</h3>
+                    <div class="h-64">
+                        <canvas id="homeSectorChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-slate-500 mt-4">Contrairement au CAC (Luxe) ou au DAX (Indus),
+                        l'Alpine 100 est équilibré.</p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-slate-800 to-indigo-900 p-6 rounded-2xl shadow-lg text-white flex flex-col justify-center items-center text-center">
+                    <i class="fa-solid fa-scale-balanced text-4xl mb-4 text-indigo-300"></i>
+                    <h3 class="text-xl font-bold mb-2">Pourquoi c'est mieux ?</h3>
+                    <p class="text-slate-300 text-sm mb-6 max-w-sm">
+                        La corrélation entre "Santé Suisse" (Défensif) et "Luxe Français" (Cyclique) crée un
+                        portefeuille au Sharpe Ratio optimisé.
+                    </p>
+                    <button onclick="app.navigate('impact')"
+                        class="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm transition-colors border border-white/20">
+                        Voir l'analyse détaillée
+                    </button>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                     <div
@@ -183,25 +237,41 @@
                             class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-blue-600 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
                             <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
                                 <span><i class="fa-solid fa-wine-glass text-blue-600 mr-3"></i> France</span>
-                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-blue-600 transition-colors"></i>
+                                <i
+                                    class="fa-solid fa-arrow-right text-slate-300 group-hover:text-blue-600 transition-colors"></i>
                             </h3>
                             <p class="text-sm text-slate-600 mt-2">
-                                <strong>Bénéfice :</strong> Financement de la "Tech" et de l'Industrie verte. Accès à la liquidité pour la Deeptech.
+                                <strong>Bénéfice :</strong> Financement de la "Tech" et de l'Industrie verte. Accès à la
+                                liquidité.
                             </p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded font-mono">Poids:
+                                    ~15%</span>
+                                <span class="text-xs bg-slate-50 text-slate-600 px-2 py-1 rounded font-mono">2300
+                                    Mds€</span>
+                            </div>
                         </div>
                     </a>
-                    
+
                     <!-- Italie -->
                     <a href="italy.html" class="block group">
                         <div
                             class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-emerald-600 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
                             <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
                                 <span><i class="fa-solid fa-pizza-slice text-emerald-600 mr-3"></i> Italie</span>
-                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-emerald-600 transition-colors"></i>
+                                <i
+                                    class="fa-solid fa-arrow-right text-slate-300 group-hover:text-emerald-600 transition-colors"></i>
                             </h3>
                             <p class="text-sm text-slate-600 mt-2">
-                                <strong>Bénéfice :</strong> Baisse du coût de la dette (Spread). Réduction de la "prime de risque pays".
+                                <strong>Bénéfice :</strong> Baisse du coût de la dette (Spread). Réduction de la "prime
+                                de risque".
                             </p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded font-mono">Poids:
+                                    ~30%</span>
+                                <span class="text-xs bg-slate-50 text-slate-600 px-2 py-1 rounded font-mono">650
+                                    Mds€</span>
+                            </div>
                         </div>
                     </a>
 
@@ -211,11 +281,18 @@
                             class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-red-600 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
                             <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
                                 <span><i class="fa-solid fa-cheese text-red-600 mr-3"></i> Suisse</span>
-                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-red-600 transition-colors"></i>
+                                <i
+                                    class="fa-solid fa-arrow-right text-slate-300 group-hover:text-red-600 transition-colors"></i>
                             </h3>
                             <p class="text-sm text-slate-600 mt-2">
-                                <strong>Bénéfice :</strong> Dé-concentration. Diversification du risque géographique pour les fonds de pension.
+                                <strong>Bénéfice :</strong> Dé-concentration. Diversification du risque géographique.
                             </p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-red-50 text-red-700 px-2 py-1 rounded font-mono">Poids:
+                                    ~60%</span>
+                                <span class="text-xs bg-slate-50 text-slate-600 px-2 py-1 rounded font-mono">1400
+                                    Mds€</span>
+                            </div>
                         </div>
                     </a>
 
@@ -224,12 +301,21 @@
                         <div
                             class="bg-white p-6 rounded-xl border border-l-4 border-slate-200 border-l-amber-500 shadow-sm group-hover:shadow-md transition-all group-hover:border-slate-300">
                             <h3 class="font-bold text-lg text-slate-900 flex items-center justify-between">
-                                <span><i class="fa-solid fa-beer-mug-empty text-amber-500 mr-3"></i> Allemagne (Sud)</span>
-                                <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-amber-500 transition-colors"></i>
+                                <span><i class="fa-solid fa-beer-mug-empty text-amber-500 mr-3"></i> Allemagne
+                                    (Sud)</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-slate-300 group-hover:text-amber-500 transition-colors"></i>
                             </h3>
                             <p class="text-sm text-slate-600 mt-2">
-                                <strong>Bénéfice :</strong> Formalisation de l'axe industriel "Rhin-Alpin", le cluster industriel le plus puissant.
+                                <strong>Bénéfice :</strong> Formalisation de l'axe industriel "Rhin-Alpin", le cluster
+                                le plus puissant.
                             </p>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded font-mono">Poids:
+                                    ~10%</span>
+                                <span class="text-xs bg-slate-50 text-slate-600 px-2 py-1 rounded font-mono">2400
+                                    Mds€</span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -251,8 +337,10 @@
                         <ul class="text-sm text-red-700 space-y-2 list-disc list-inside">
                             <li><strong>Vampirisation :</strong> Les capitaux pourraient se concentrer uniquement sur
                                 les 50 plus grosses entreprises.</li>
-                            <li><strong>Perte de Souveraineté :</strong> Perte de la régulation boursière comme outil politique national.</li>
-                            <li><strong>Risque de Contagion :</strong> Propagation rapide des crises bancaires locales.</li>
+                            <li><strong>Perte de Souveraineté :</strong> Perte de la régulation boursière comme outil
+                                politique national.</li>
+                            <li><strong>Risque de Contagion :</strong> Propagation rapide des crises bancaires locales.
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -452,7 +540,9 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 mt-auto py-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-500 text-sm mb-2">© <script>document.write(new Date().getFullYear())</script> Alpine 100 Research Project.</p>
+            <p class="text-slate-500 text-sm mb-2">©
+                <script>document.write(new Date().getFullYear())</script> Alpine 100 Research Project.
+            </p>
             <div class="flex justify-center space-x-4 text-xs text-slate-400">
                 <span>Méthodologie Open Source</span>
                 <span>•</span>

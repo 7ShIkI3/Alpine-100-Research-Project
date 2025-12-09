@@ -59,7 +59,38 @@ const app = {
     },
 
     setupCharts: function () {
-        // 1. Impact Chart
+        // 1. Home Sector Chart (New)
+        const ctxHomeSector = document.getElementById('homeSectorChart');
+        if (ctxHomeSector) {
+            new Chart(ctxHomeSector, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Santé / Pharma', 'Luxe / Conso', 'Industrie / Auto', 'Finance / Assurance', 'Autres'],
+                    datasets: [{
+                        data: [30, 25, 25, 15, 5],
+                        backgroundColor: [
+                            '#ef4444', // Red (Swiss Health)
+                            '#3b82f6', // Blue (French Luxury)
+                            '#f59e0b', // Amber (German Industry)
+                            '#10b981', // Emerald (Italian Finance)
+                            '#94a3b8'  // Gray
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+                    },
+                    cutout: '60%'
+                }
+            });
+        }
+
+        // 2. Impact Chart
         const ctxImpact = document.getElementById('impactChart');
         if (ctxImpact) {
             this.charts.impact = new Chart(ctxImpact, {
