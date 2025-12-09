@@ -1,0 +1,33 @@
+Pays;Entreprise;Ticker;Secteur;Prix (Est. EUR);Cap. Boursière (Mds EUR);Perf. YTD (%);Rendement (%)
+France;LVMH;MC.PA;Luxe & Conso;625.2;358.5;-2.85;2.1
+France;Hermès;RMS.PA;Luxe & Conso;2132;266.1;4.5;0.6
+Suisse;Nestlé;NESN.SW;Conso de base;97.17;265.5;-5.2;3.2
+Allemagne;SAP;SAP.DE;Technologie;210.1;258;42.1;1.1
+Suisse;Roche;ROG.SW;Santé;278.5;245.2;6.8;3.8
+France;L'Oréal;OR.PA;Conso de base;365.35;233.9;6.6;1.8
+Suisse;Novartis;NOVN.SW;Santé;98.4;215.1;11.2;3.6
+Allemagne;Siemens;SIE.DE;Industrie;234.35;185;15.4;2.4
+France;Airbus;AIR.PA;Industrie (Aéro);198.1;155.8;25.7;1.4
+Allemagne;Airbus (DE);AIR.DE;Industrie (Aéro);198.06;155.8;25.7;1.4
+France;Schneider Electric;SU.PA;Technologie;237.6;150.5;-3.4;1.5
+France;TotalEnergies;TTE.PA;Énergie;56.3;146.2;3.55;5.2
+Allemagne;Allianz;ALV.DE;Assurance;369.6;141.8;22.8;4.8
+Allemagne;Deutsche Telekom;DTE.DE;Télécoms;27.09;135.4;18.2;3.1
+France;Sanofi;SAN.PA;Santé;83.6;129.7;-9.1;4.1
+Italie;Ferrari;RACE.MI;Luxe & Auto;410.5;108.5;34.2;0.7
+Suisse;UBS Group;UBSG.SW;Finance;28.5;95.3;9.4;2.5
+Suisse;ABB;ABBN.SW;Industrie;48.2;92.5;18.6;2
+France;BNP Paribas;BNP.PA;Finance;76.42;87.4;12.3;7.2
+Suisse;Richemont;CFR.SW;Luxe & Conso;135.2;78.4;-2.1;2.2
+Suisse;Zurich Insurance;ZURN.SW;Assurance;512;76.8;14.5;5.1
+Italie;Enel;ENEL.MI;Utilities;7.2;73.2;6.5;6.1
+Italie;Intesa Sanpaolo;ISP.MI;Finance;3.85;70.4;22.1;7.8
+Allemagne;Munich Re;MUV2.DE;Assurance;534.2;69.6;28.5;3.3
+Italie;UniCredit;UCG.MI;Finance;40.1;68.2;45.3;7.1
+Allemagne;Mercedes-Benz;MBG.DE;Auto;61.5;65.4;-8.5;7.8
+Allemagne;BMW;BMW.DE;Auto;97.14;57.9;-4.2;6.2
+Italie;Eni;ENI.MI;Énergie;14.2;46.8;-4.5;6.6
+Suisse;Sika;SIKA.SW;Chimie/Construction;265.4;42.1;8.9;1.5
+Italie;Generali;G.MI;Assurance;26.4;41.2;12.8;5.3
+Italie;Stellantis;STLAM.MI;Auto;12.5;38.5;-15.2;8.5
+Italie;Terna;TRN.MI;Utilities;8.1;16.2;5.1;4.4

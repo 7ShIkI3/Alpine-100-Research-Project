@@ -1,0 +1,5 @@
+Pays,Population_2024,Densité_hab_km2,Superficie_km2,PIB_2024_Mds_EUR,PIB_par_habitant_EUR,Croissance_PIB_2024_pct,Inflation_2024_pct,Taux_chomage_2024_pct,Monnaie,Capitale,Pop_capitale,Indice_boursier,Nombre_entreprises_indice,Capitalisation_totale_indice_Mds_EUR,Pays_alpin_part_pct,Secteur_dominant,Langue,Gouvernement,UE,Schengen,Zone_Euro,Taux_croissance_prevu_2025_pct,Inflation_prevue_2025_pct
+France,68401997,122,547557,2921,38000,0.8,0.9,7.3,EUR,Paris,2138551,CAC 40,40,Environ 2300,Environ 15,Industrie (34.5%),Français,République,Oui,Oui,Oui,0.9,2.1
+Suisse,9063764,200,41285,830,91500,1.3,-0.1,2.8,CHF,Berne,133798,SMI,20,Environ 1400,60,"Santé (36.4%), Finance (19.4%)","Allemand, Français, Italien",République fédérale,Non,Oui,Non,1.0,1.5
+Italie,58989749,195,302073,2192,32810,0.7,1.0,6.0,EUR,Rome,2769000,FTSE MIB,40,Environ 650,Environ 30,"Finance (48.3%), Services (16.7%)",Italien,République,Oui,Oui,Oui,1.1,1.9
+Allemagne,83577140,234,357022,4430,52900,0.0,2.4,6.0,EUR,Berlin,3760000,DAX 40,40,Environ 2400,Environ 10,"Industrie (29%), Finance (20%)",Allemand,République fédérale,Oui,Oui,Oui,0.3,2.1

@@ -1,0 +1,5 @@
+Pays,Annee,PIB_Mds_EUR,Croissance_PIB_pct,Inflation_pct,Chomage_pct,Salaire_moyen_EUR,Productivite_horaire_EUR,Depenses_RD_pct_PIB,Dette_publique_pct_PIB,Deficit_public_pct_PIB,Exportations_Mds_EUR,Importations_Mds_EUR,Salaire_moyen_CHF
+France,2024,2921,0.8,0.9,7.3,42000.0,65,2.3,110,-5.4,628,704,
+Suisse,2024,830,1.3,-0.1,2.8,,85,3.5,38,0.3,420,380,160000.0
+Italie,2024,2192,0.7,1.0,6.0,35000.0,55,1.4,144,-3.8,587,549,
+Allemagne,2024,4430,0.0,2.4,6.0,52000.0,75,3.1,58,-2.2,1400,1200,

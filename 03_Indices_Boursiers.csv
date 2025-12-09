@@ -1,0 +1,5 @@
+Indice,Pays,Nombre_entreprises,Bourse,Capitalisation_Mds_EUR,Secteur_principal,Top_3_entreprises,Poids_industrie_pct,Poids_finance_pct,Poids_consommation_pct,Poids_santé_pct,Poids_energie_pct,Performance_2025_pct,Dividende_moyen_brut_pct,Poids_chimie_pharma_pct,Poids_services_collectifs_pct,Poids_sante_pharma_pct,Poids_luxe_pct,Poids_alimentation_pct
+CAC 40,France,40,Euronext Paris,2300,"Industrie (34.5%), Consommation (15%), Finance (15%)","LVMH, EssilorLuxottica, Schneider Electric",34.5,15.0,15.0,8.0,7.0,N/A,3.2,,,,,
+DAX 40,Allemagne,40,Francfort,2400,"Industrie (29%), Finance (20%), Chimie/Pharma (12%)","SAP, Siemens, Linde",29.0,20.0,6.0,,8.0,19.96,3.5,12.0,,,,
+FTSE MIB,Italie,40,Milan,650,"Finance (48.3%), Services collectifs (16.7%), Consommation (14.4%)","Enel, Intesa Sanpaolo, UniCredit",5.0,48.3,14.4,,11.0,N/A,4.8,,16.7,,,
+SMI,Suisse,20,SIX Swiss Exchange,1400,"Santé/Pharma (36.4%), Finance (19.4%), Luxe (12%)","Nestlé, Roche, Novartis",10.0,19.4,,,,N/A,2.8,,,36.4,12.0,8.0

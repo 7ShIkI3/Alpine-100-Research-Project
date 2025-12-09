@@ -1,0 +1,46 @@
+Rang,Pays,Entreprise,Secteur,Capitalisation_Mds_EUR,Indice,CA_2024_Mds_EUR,CA_2024_Mds_USD,CA_2023_Mds_EUR
+1,France,LVMH,Luxe,304,CAC 40,84.7,,
+2,France,EssilorLuxottica,Luxe/Optique,144,CAC 40,26.5,,
+3,France,Schneider Electric,Industrie,127,CAC 40,38.0,,
+4,France,Safran,Aéronautique,125,CAC 40,27.3,,
+5,France,AXA,Assurance,80,CAC 40,110.0,,
+6,France,BNP Paribas,Banque,74,CAC 40,48.8,,
+7,France,Vinci,BTP/Construction,65,CAC 40,71.6,,
+8,France,Engie,Énergie,53,CAC 40,73.8,,
+9,France,Thales,Électronique/Défense,49,CAC 40,20.6,,
+10,France,Crédit Agricole,Banque,48,CAC 40,27.2,,
+11,France,Société Générale,Banque,43,CAC 40,26.8,,
+12,France,Airbus,Aéronautique,40,CAC 40,69.2,,
+13,France,L'Oréal,Cosmétiques,38,CAC 40,43.5,,
+14,France,Saint-Gobain,Matériaux,35,CAC 40,46.6,,
+15,France,Sanofi,Pharmaceutique,33,CAC 40,41.1,,
+1,Suisse,Roche,Pharmaceutique,280,SMI,,51.8,
+2,Suisse,Novartis,Pharmaceutique,200,SMI,,53.6,
+3,Suisse,Nestlé,Agroalimentaire,300,SMI,,100.1,
+4,Suisse,UBS,Banque,80,SMI,,39.8,
+5,Suisse,Zurich Insurance,Assurance,70,SMI,,73.0,
+6,Suisse,ABB,Industrie,65,SMI,,40.1,
+7,Suisse,Richemont,Luxe,60,SMI,,14.6,
+8,Suisse,Swisscom,Télécommunications,45,SMI,,12.8,
+9,Suisse,Swiss Re,Assurance,40,SMI,,37.1,
+10,Suisse,Holcim,Matériaux,35,SMI,,20.9,
+1,Italie,Enel,Énergie,72,FTSE MIB,,,15.35
+2,Italie,Intesa Sanpaolo,Banque,71,FTSE MIB,22.0,,
+3,Italie,UniCredit,Banque,60,FTSE MIB,25.0,,
+4,Italie,Generali,Assurance,43,FTSE MIB,35.0,,
+5,Italie,Eni,Énergie,42,FTSE MIB,,,84.0
+6,Italie,Stellantis,Automobile,37,FTSE MIB,156.9,,
+7,Italie,Tenaris,Industrie,20,FTSE MIB,,,18.0
+8,Italie,Poste Italiane,Postal/Services,18,FTSE MIB,,,11.5
+9,Italie,Leonardo,Défense,15,FTSE MIB,,,14.8
+10,Italie,Moncler,Luxe,14,FTSE MIB,,,3.0
+1,Allemagne,SAP,Logiciels/IT,247,DAX 40,,,35.0
+2,Allemagne,Siemens,Industrie,183,DAX 40,,,70.0
+3,Allemagne,Allianz,Assurance,115,DAX 40,,,155.0
+4,Allemagne,Siemens Energy,Énergie,75,DAX 40,,,35.0
+5,Allemagne,Linde,Chimie,150,DAX 40,,,32.0
+6,Allemagne,BASF,Chimie,80,DAX 40,,,88.0
+7,Allemagne,Bayer,Pharmaceutique,65,DAX 40,,,60.0
+8,Allemagne,Munich Re,Assurance,70,DAX 40,,,70.0
+9,Allemagne,Deutsche Telekom,Télécommunications,90,DAX 40,,,122.0
+10,Allemagne,Rheinmetall,Défense,35,DAX 40,,,6.0

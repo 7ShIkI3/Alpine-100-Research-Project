@@ -1,0 +1,6 @@
+Secteur,France_pct_emploi,Suisse_pct_emploi,Italie_pct_emploi,Allemagne_pct_emploi,Description,France_pct_contribution_PIB,Suisse_pct_contribution_PIB,Italie_pct_contribution_PIB,Allemagne_pct_contribution_PIB
+Industrie,12.5,19.0,20.0,25.0,"Incluant automobile, aéronautique, mécanique",,,,
+Services,82.0,78.0,70.0,70.0,"Finance, commerce, tourisme, santé, etc.",,,,
+Agriculture,2.0,1.0,3.5,1.5,Agriculture et agroalimentaire,,,,
+Énergie,1.5,0.8,1.2,1.5,Production et distribution d'énergie,,,,
+Tourisme,,,,,Secteur touristique majeur,9.0,6.5,13.0,3.0
