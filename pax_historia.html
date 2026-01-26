@@ -4,236 +4,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pax Historia - La Genèse de l'Alpine 100</title>
+    <title>Pax Historia - Documentation Vivante</title>
     <meta name="description"
-        content="Découvrez la genèse du projet Alpine 100 : le prompt fondateur, la constitution détaillée et le guide de mise en place.">
-    <meta name="robots" content="index, follow">
+        content="Documentation technique et historique du projet Alpine 100 : Prompts, Schémas et Processus.">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#0f172a">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Custom Connector Lines for Schemas */
+        .connector-y {
+            width: 2px;
+            background: #475569;
+            margin: 0 auto;
+        }
+
+        .connector-x {
+            height: 2px;
+            background: #475569;
+            margin: auto 0;
+        }
+
+        .node {
+            transition: all 0.3s ease;
+        }
+
+        .node:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 
-<body class="flex flex-col min-h-screen bg-slate-900 text-slate-200">
+<body class="flex flex-col min-h-screen bg-slate-900 text-slate-200 font-sans">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-3 cursor-pointer">
-                    <div
-                        class="w-10 h-10 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-lg flex items-center justify-center text-white shadow-lg">
-                        <i class="fa-solid fa-scroll text-lg"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-lg leading-none text-white">Pax<span
-                                class="text-amber-500">Historia</span></span>
-                    </div>
-                </a>
-
-                <div class="flex items-center space-x-4">
-                    <a href="index.html"
-                        class="text-sm font-medium text-slate-400 hover:text-amber-500 transition-colors">
-                        <i class="fa-solid fa-arrow-left mr-2"></i> Retour à l'accueil
-                    </a>
-                </div>
-            </div>
+    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-amber-500 rounded flex items-center justify-center text-slate-900 font-bold"><i
+                        class="fa-solid fa-code"></i></div>
+                <span class="font-bold text-lg text-white">Pax<span class="text-amber-500">Historia</span></span>
+            </a>
+            <a href="index.html" class="text-sm font-medium text-slate-400 hover:text-white transition-colors"><i
+                    class="fa-solid fa-house mr-2"></i>Retour Site</a>
         </div>
     </nav>
 
-    <!-- Content -->
-    <main class="flex-grow max-w-5xl mx-auto px-4 py-12 w-full">
+    <main class="max-w-6xl mx-auto px-4 py-16">
 
         <!-- Header -->
-        <div class="text-center mb-16 fade-enter">
-            <span
-                class="inline-block py-1 px-3 rounded-full bg-amber-900/30 text-amber-500 text-xs font-bold tracking-wide uppercase mb-4 border border-amber-900/50">Genèse
-                du Projet</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
-                Le Code Source de l'Histoire
+        <div class="text-center mb-24">
+            <h1
+                class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-500 to-amber-700 tracking-tight mb-6">
+                Documentation Vivante
             </h1>
             <p class="text-xl text-slate-400 max-w-2xl mx-auto">
-                "Fait un bilan de toutes les pages et du js car le js et le page ne marche plus"
-                <span class="block text-sm mt-2 opacity-50">— Le point de départ (Prompt Utilisateur)</span>
+                La genèse du projet décomposée en 3 phases clés : Vision, Juridique, Exécution.
+                Pour chaque étape : le <span class="text-amber-400 font-mono">Prompt</span> et le <span
+                    class="text-blue-400 font-mono">Schéma</span>.
             </p>
         </div>
 
-        <!-- Section 1: The Prompt (Terminal Style) -->
-        <section class="mb-20 fade-enter" style="animation-delay: 0.1s;">
-            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                <i class="fa-solid fa-terminal text-amber-500 mr-3"></i> Le Prompt Fondateur
-            </h2>
+        <!-- ================= PHASE 1 : VISION ================= -->
+        <section class="mb-32 relative">
             <div
-                class="bg-black rounded-xl border border-slate-800 shadow-2xl overflow-hidden font-mono text-sm leading-relaxed relative group">
-                <!-- Window Controls -->
-                <div class="bg-slate-800 px-4 py-2 flex items-center space-x-2 border-b border-slate-700">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    <div class="ml-4 text-xs text-slate-400 flex-grow text-center">user@alpine-100:~/mission</div>
+                class="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-transparent opacity-20 hidden md:block">
+            </div>
+
+            <div class="flex items-center mb-8">
+                <span
+                    class="bg-blue-900/50 text-blue-400 border border-blue-500/30 px-3 py-1 rounded text-xs font-mono uppercase tracking-widest mr-4">Phase
+                    01</span>
+                <h2 class="text-3xl font-bold text-white">La Vision Stratégique</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- PROMPT TERMINAL -->
+                <div
+                    class="bg-black rounded-lg border border-slate-800 overflow-hidden font-mono text-xs md:text-sm shadow-2xl">
+                    <div class="bg-slate-800 px-4 py-2 flex items-center border-b border-slate-700">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-slate-400">prompt_01_vision.sh</span>
+                    </div>
+                    <div class="p-6 text-blue-300 space-y-4">
+                        <p><span class="text-green-400">user@ai:~$</span> ./generate_concept --role="Senior
+                            Macroeconomist"</p>
+                        <p class="text-slate-300 pl-4 border-l-2 border-slate-800">
+                            OBJECTIVE: Merge European stock markets to rival S&P 500.<br>
+                            SCOPE: <br>
+                            - France (Luxury/Indus)<br>
+                            - Italy (Bank/Energy)<br>
+                            - Switz (Pharma/Food)<br>
+                            - Germany (Indus/Tech)<br>
+                            <br>
+                            OUTPUT: Create a unified "Alpine 100" index graph showing > 6T€ capitalisation.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Content -->
-                <div class="p-6 text-green-400">
-                    <div class="mb-4">
-                        <span class="text-blue-400">root@nexus</span>:<span class="text-white">~</span>$ cat
-                        mission_statement.txt
+                <!-- SCHEMA VISUEL -->
+                <div
+                    class="relative bg-slate-800/50 rounded-xl border border-slate-700 p-8 flex flex-col justify-center items-center">
+                    <h3 class="absolute top-4 left-4 text-xs font-bold text-slate-500 uppercase">Architecture de Fusion
+                    </h3>
+
+                    <!-- Nodes -->
+                    <div class="grid grid-cols-2 gap-8 mb-8 w-full max-w-sm">
+                        <div class="node bg-slate-900 border border-blue-500/50 p-4 rounded text-center">
+                            <i class="fa-solid fa-wine-glass text-blue-500 mb-2"></i>
+                            <div class="text-sm font-bold">FRANCE</div>
+                        </div>
+                        <div class="node bg-slate-900 border border-red-500/50 p-4 rounded text-center">
+                            <i class="fa-solid fa-cheese text-red-500 mb-2"></i>
+                            <div class="text-sm font-bold">SUISSE</div>
+                        </div>
+                        <div class="node bg-slate-900 border border-emerald-500/50 p-4 rounded text-center">
+                            <i class="fa-solid fa-pizza-slice text-emerald-500 mb-2"></i>
+                            <div class="text-sm font-bold">ITALIE</div>
+                        </div>
+                        <div class="node bg-slate-900 border border-amber-500/50 p-4 rounded text-center">
+                            <i class="fa-solid fa-beer-mug-empty text-amber-500 mb-2"></i>
+                            <div class="text-sm font-bold">ALLEM.</div>
+                        </div>
                     </div>
-                    <p class="mb-4 text-slate-300">
-                        > OBJECTIF : Créer la 3ème puissance financière mondiale.<br>
-                        > CIBLES : France, Italie, Suisse, Allemagne (Sud).<br>
-                        > MOYEN : Unification des marchés boursiers (Projet Alpine 100).<br>
-                        > REQUIREMENT : Design Premium, Analyse Macroéconomique, Cadre Légal.<br>
-                    </p>
-                    <div class="animate-pulse">
-                        <span class="text-blue-400">root@nexus</span>:<span class="text-white">~</span>$ _
+
+                    <!-- Convergence Arrows (CSS) -->
+                    <div class="flex justify-center space-x-8 mb-4">
+                        <i class="fa-solid fa-arrow-down text-slate-600 animate-bounce"></i>
+                        <i class="fa-solid fa-arrow-down text-slate-600 animate-bounce"
+                            style="animation-delay: 0.2s"></i>
                     </div>
+
+                    <!-- Central Node -->
+                    <div
+                        class="node bg-gradient-to-br from-indigo-600 to-blue-700 text-white p-6 rounded-xl shadow-lg shadow-blue-900/50 w-full max-w-xs text-center border border-indigo-400">
+                        <i class="fa-solid fa-mountain text-3xl mb-2"></i>
+                        <div class="text-xl font-bold">ALPINE 100</div>
+                        <div class="text-xs text-indigo-200">Cap: 6.5 Trillions €</div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: La Constitution (The Laws) -->
-        <section class="mb-20 fade-enter" style="animation-delay: 0.2s;">
-            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                <i class="fa-solid fa-scale-balanced text-amber-500 mr-3"></i> La Constitution Alpine
-            </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Law 1 -->
+        <!-- ================= PHASE 2 : JURIDIQUE ================= -->
+        <section class="mb-32 relative">
+            <div
+                class="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-transparent opacity-20 hidden md:block">
+            </div>
+
+            <div class="flex items-center mb-8">
+                <span
+                    class="bg-purple-900/50 text-purple-400 border border-purple-500/30 px-3 py-1 rounded text-xs font-mono uppercase tracking-widest mr-4">Phase
+                    02</span>
+                <h2 class="text-3xl font-bold text-white">L'Ingénierie Fiscale</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- PROMPT TERMINAL -->
                 <div
-                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-white">Loi A-101 : Unicité</h3>
-                        <span
-                            class="text-xs bg-amber-900/30 text-amber-500 px-2 py-1 rounded border border-amber-900/50">Fondamentale</span>
+                    class="bg-black rounded-lg border border-slate-800 overflow-hidden font-mono text-xs md:text-sm shadow-2xl">
+                    <div class="bg-slate-800 px-4 py-2 flex items-center border-b border-slate-700">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-slate-400">prompt_02_legal.sh</span>
                     </div>
-                    <p class="text-slate-400 text-sm mb-4">
-                        "Tout titre coté sur les places de Paris, Milan, Zurich ou Francfort (segment DAX-S) est
-                        considéré comme domestique pour l'ensemble des investisseurs de la zone."
-                    </p>
-                    <ul class="text-xs text-slate-500 space-y-1 ml-4 list-disc">
-                        <li>Fin du "Home Bias".</li>
-                        <li>Eligibilité PEA/PIR universelle.</li>
-                    </ul>
+                    <div class="p-6 text-purple-300 space-y-4">
+                        <p><span class="text-green-400">user@ai:~$</span> ./draft_laws --context="Cross-Border Finance"
+                        </p>
+                        <p class="text-slate-300 pl-4 border-l-2 border-slate-800">
+                            TASK: Solve double taxation issues.<br>
+                            SOLUTION: <br>
+                            1. Create "Alpine Tax Clearing House".<br>
+                            2. Cap Withholding Tax at 15%.<br>
+                            3. Auto-compensate between Treasuries.<br>
+                            <br>
+                            VISUAL: Show flow from Company Dividend to Investor Wallet.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Law 2 -->
+                <!-- SCHEMA VISUEL -->
                 <div
-                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-white">Loi F-202 : Fiscalité Neutre</h3>
-                        <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Technique</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">
-                        "L'impôt sur les dividendes est prélevé à la source au taux le plus bas des 4 pays (15%), sans
-                        double imposition, via une chambre de compensation fiscale unique."
-                    </p>
-                    <ul class="text-xs text-slate-500 space-y-1 ml-4 list-disc">
-                        <li>Simplification administrative radicale.</li>
-                        <li>Attractivité pour les capitaux étrangers.</li>
-                    </ul>
-                </div>
+                    class="relative bg-slate-800/50 rounded-xl border border-slate-700 p-8 flex flex-col justify-center items-center">
+                    <h3 class="absolute top-4 left-4 text-xs font-bold text-slate-500 uppercase">Flux Dividende Unifié
+                    </h3>
 
-                <!-- Law 3 -->
-                <div
-                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-white">Loi G-303 : Gouvernance</h3>
-                        <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Politique</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">
-                        "La gestion de l'indice est confiée à un consortium tournant (Rotation annuelle de la présidence
-                        entre AMF, BaFin, CONSOB, FINMA) pour garantir l'équité politique."
-                    </p>
-                </div>
+                    <div class="flex items-center w-full justify-between max-w-lg mt-4">
+                        <!-- Source -->
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center border-2 border-slate-500">
+                                <i class="fa-solid fa-building text-2xl text-slate-300"></i>
+                            </div>
+                            <div class="text-xs mt-2 font-mono">Entreprise</div>
+                            <div class="text-[10px] text-green-400">Div: 100€</div>
+                        </div>
 
-                <!-- Law 4 -->
-                <div
-                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-lg text-white">Loi T-404 : Transparence</h3>
-                        <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">Éthique</span>
+                        <!-- Path -->
+                        <div class="flex-grow h-1 bg-slate-700 mx-2 relative"></div>
+
+                        <!-- Filter (The Innovation) -->
+                        <div class="flex flex-col items-center z-10">
+                            <div
+                                class="w-24 bg-purple-900 border border-purple-500 rounded-lg p-2 text-center shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                                <div class="text-[10px] text-purple-300 uppercase font-bold">Clearing House</div>
+                                <div class="text-lg font-bold text-white">-15%</div>
+                            </div>
+                            <div class="text-[10px] text-purple-400 mt-2">Prélèvement Unique</div>
+                        </div>
+
+                        <!-- Path -->
+                        <div class="flex-grow h-1 bg-slate-700 mx-2 relative"></div>
+
+                        <!-- Dest -->
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="w-16 h-16 bg-emerald-900 rounded-full flex items-center justify-center border-2 border-emerald-500">
+                                <i class="fa-solid fa-wallet text-2xl text-emerald-400"></i>
+                            </div>
+                            <div class="text-xs mt-2 font-mono">Investisseur</div>
+                            <div class="text-[10px] text-emerald-400 font-bold">Net: 85€</div>
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-sm mb-4">
-                        "Publication obligatoire en Open Data de tous les flux d'ordres anonymisés pour permettre la
-                        recherche académique et la détection d'abus de marché par IA."
-                    </p>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: Mise en Place (Roadmap) -->
-        <section class="fade-enter" style="animation-delay: 0.3s;">
-            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                <i class="fa-solid fa-list-check text-amber-500 mr-3"></i> Protocole de Mise en Place
-            </h2>
 
-            <div class="space-y-6">
-                <!-- Step 01 -->
-                <div class="flex group">
-                    <div class="flex flex-col items-center mr-6">
-                        <div
-                            class="w-8 h-8 rounded-full bg-slate-800 border-2 border-amber-500 text-amber-500 flex items-center justify-center font-bold text-sm z-10 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
-                            1</div>
-                        <div class="h-full w-0.5 bg-slate-800 my-2"></div>
+        <!-- ================= PHASE 3 : ROADMAP ================= -->
+        <section class="mb-12 relative">
+            <div
+                class="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-500 to-transparent opacity-20 hidden md:block">
+            </div>
+
+            <div class="flex items-center mb-8">
+                <span
+                    class="bg-amber-900/50 text-amber-400 border border-amber-500/30 px-3 py-1 rounded text-xs font-mono uppercase tracking-widest mr-4">Phase
+                    03</span>
+                <h2 class="text-3xl font-bold text-white">Le Déploiement</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- PROMPT TERMINAL -->
+                <div
+                    class="bg-black rounded-lg border border-slate-800 overflow-hidden font-mono text-xs md:text-sm shadow-2xl">
+                    <div class="bg-slate-800 px-4 py-2 flex items-center border-b border-slate-700">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-slate-400">prompt_03_roadmap.sh</span>
                     </div>
-                    <div class="pb-8">
-                        <h3 class="text-lg font-bold text-white mb-2">Synchronisation des Places</h3>
-                        <p class="text-slate-400 text-sm">Harmonisation des horaires de cotation (09:00 - 17:30 CET) et
-                            des jours fériés boursiers. Création d'un carnet d'ordres virtuel unifié.</p>
+                    <div class="p-6 text-amber-300 space-y-4">
+                        <p><span class="text-green-400">user@ai:~$</span> ./project_plan --timeline="3Y"</p>
+                        <p class="text-slate-300 pl-4 border-l-2 border-slate-800">
+                            STEP 1 (2026): "Sandbox". 50 pilot companies.<br>
+                            STEP 2 (2027): "Treaty". 4 Parliaments ratify tax law.<br>
+                            STEP 3 (2028): "Live". ETF Launch.<br>
+                            <br>
+                            CONSTRAINT: Ensure no market downtime during transition.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Step 02 -->
-                <div class="flex group">
-                    <div class="flex flex-col items-center mr-6">
-                        <div
-                            class="w-8 h-8 rounded-full bg-slate-800 border-2 border-slate-600 text-slate-400 flex items-center justify-center font-bold text-sm z-10 group-hover:border-amber-500 transition-colors">
-                            2</div>
-                        <div class="h-full w-0.5 bg-slate-800 my-2"></div>
-                    </div>
-                    <div class="pb-8">
-                        <h3 class="text-lg font-bold text-white mb-2">Lancement de l'Indice "Vanille"</h3>
-                        <p class="text-slate-400 text-sm">Calcul théorique de l'indice Alpine 100 en temps réel sans
-                            produits dérivés associés, pour habituer les marchés à sa volatilité et sa performance.</p>
-                    </div>
-                </div>
+                <!-- SCHEMA VISUEL -->
+                <div class="relative bg-slate-800/50 rounded-xl border border-slate-700 p-8">
+                    <h3 class="absolute top-4 left-4 text-xs font-bold text-slate-500 uppercase">Timeline de Production
+                    </h3>
 
-                <!-- Step 03 -->
-                <div class="flex group">
-                    <div class="flex flex-col items-center mr-6">
-                        <div
-                            class="w-8 h-8 rounded-full bg-slate-800 border-2 border-slate-600 text-slate-400 flex items-center justify-center font-bold text-sm z-10 group-hover:border-amber-500 transition-colors">
-                            3</div>
-                        <div class="h-full w-0.5 bg-slate-800 my-2"></div>
-                    </div>
-                    <div class="pb-8">
-                        <h3 class="text-lg font-bold text-white mb-2">Création de l'ETF Pilote</h3>
-                        <p class="text-slate-400 text-sm">Lancement d'un ETF (Exchange Traded Fund) par un émetteur
-                            neutre (ex: Amundi ou BlackRock) répliquant physiquement l'indice.</p>
-                    </div>
-                </div>
+                    <div class="mt-8 space-y-6">
+                        <!-- Item 1 -->
+                        <div class="flex items-center group">
+                            <div class="w-12 text-right text-xs text-slate-500 font-mono mr-4">2026</div>
+                            <div
+                                class="w-4 h-4 rounded-full bg-slate-700 border border-slate-500 group-hover:bg-amber-500 transition-colors z-10">
+                            </div>
+                            <div class="ml-4 bg-slate-900 p-3 rounded border border-slate-800 flex-grow">
+                                <div class="font-bold text-slate-200">Sandbox Alpha</div>
+                                <div class="text-xs text-slate-500">Test sur 50 valeurs</div>
+                            </div>
+                        </div>
+                        <!-- Connector -->
+                        <div class="ml-[3.5rem] -my-2 h-6 border-l border-dashed border-slate-600"></div>
 
-                <!-- Step 04 -->
-                <div class="flex group">
-                    <div class="flex flex-col items-center mr-6">
-                        <div
-                            class="w-8 h-8 rounded-full bg-slate-800 border-2 border-slate-600 text-slate-400 flex items-center justify-center font-bold text-sm z-10 group-hover:border-amber-500 transition-colors">
-                            4</div>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-2">Migration des volumes</h3>
-                        <p class="text-slate-400 text-sm">Incitations fiscales pour les assureurs-vie européens à
-                            basculer une partie de leur poche "Actions Europe" vers l'Alpine 100.</p>
+                        <!-- Item 2 -->
+                        <div class="flex items-center group">
+                            <div class="w-12 text-right text-xs text-slate-500 font-mono mr-4">2027</div>
+                            <div
+                                class="w-4 h-4 rounded-full bg-slate-700 border border-slate-500 group-hover:bg-amber-500 transition-colors z-10">
+                            </div>
+                            <div class="ml-4 bg-slate-900 p-3 rounded border border-slate-800 flex-grow">
+                                <div class="font-bold text-slate-200">Ratification Traité</div>
+                                <div class="text-xs text-slate-500">Accord politique G4</div>
+                            </div>
+                        </div>
+                        <!-- Connector -->
+                        <div class="ml-[3.5rem] -my-2 h-6 border-l border-dashed border-slate-600"></div>
+
+                        <!-- Item 3 -->
+                        <div class="flex items-center group">
+                            <div class="w-12 text-right text-xs text-slate-500 font-mono mr-4">2028</div>
+                            <div
+                                class="w-4 h-4 rounded-full bg-amber-500 border border-amber-300 shadow-[0_0_10px_orange] z-10">
+                            </div>
+                            <div
+                                class="ml-4 bg-gradient-to-r from-amber-900/50 to-slate-900 p-3 rounded border border-amber-700/50 flex-grow">
+                                <div class="font-bold text-white">Go Live !</div>
+                                <div class="text-xs text-amber-200">Lancement ETF Public</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,15 +338,21 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 mt-auto py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-500 text-sm mb-2">©
-                <script>document.write(new Date().getFullYear())</script> Alpine 100 Research Project.
-            </p>
-        </div>
-    </footer>
-
+    <!-- Scripts -->
+    <!-- Simple fade-in script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('section').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, i * 200 + 100);
+            });
+        });
+    </script>
 </body>
 
 </html>
