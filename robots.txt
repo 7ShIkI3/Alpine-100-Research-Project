@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alpine-100-research-project.netlify.app/sitemap.xml
